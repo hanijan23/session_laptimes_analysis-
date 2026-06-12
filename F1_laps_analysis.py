@@ -49,13 +49,15 @@ for k in range(len(data["drv"])):
         counter += 1
 print(list_of_drivers, counter) #shows how many indivdual teams are competing
 
-test_driver = "HUL"
+test_driver = "NOR"
 
 for j in range(len(data["drv"])):
-    if data["drv"][j] == test_driver:
-        print(data["qs"][j], data["sesT"][j])
+    if data["drv"][j] == test_driver and data["qs"][j] == "Q1":
+        print(str(test_driver) + ": " +  str(data["qs"][j]) + "  lap: " + str(data["lap"][j]) + "  start time: " +  str(data["lST"][j]) + "    end time: " + str(data["sesT"][j]) + "    lap time: " + str(data["time"][j]) + "  status: " + str(data["status"][j]))
 
 
+print(data["s1"][:20])
 
+# to complete 3 part a, variables needed: drv, qs, lap, 
 
 
