@@ -25,21 +25,9 @@ print(data["lap"][:5])
 
 print(data["sesT"][:10]) #shows lap times in seconds
 
-driver = input("Please specify a driver in 3 letters: ")
-
-driver_laps = []
-
-for i in range(len(data["drv"])):
-    if data["drv"][i] == driver:
-        driver_laps.append(data["sesT"][i])
-
-print(driver_laps)
-
 print(data["s2"][:5])
 print(data["qs"][:50])
 print(data["time"][:5])
-
-#the important variables are drv, qs, sesT
 
 list_of_drivers = []
 counter = 0
@@ -52,12 +40,48 @@ print(list_of_drivers, counter) #shows how many indivdual teams are competing
 test_driver = "NOR"
 
 for j in range(len(data["drv"])):
-    if data["drv"][j] == test_driver and data["qs"][j] == "Q1":
+    if data["drv"][j] == test_driver:
         print(str(test_driver) + ": " +  str(data["qs"][j]) + "  lap: " + str(data["lap"][j]) + "  start time: " +  str(data["lST"][j]) + "    end time: " + str(data["sesT"][j]) + "    lap time: " + str(data["time"][j]) + "  status: " + str(data["status"][j]))
 
 
 print(data["s1"][:20])
 
-# to complete 3 part a, variables needed: drv, qs, lap, 
+# to complete 3 part a, variables needed: drv, qs, lap, time
+
+print("\n")
+print("--------------------------------------------------------------")
+print("This application presents the best valid lap times of a driver")
+print("--------------------------------------------------------------")
+print("Here are the following drivers you can select!")
+print("\n")
+print(list_of_drivers)
+print("\n")
+driver = input("Please specify a driver using a 3 Letter Code from the following list: ")
+
+driver_q1 = []
+driver_q2 = []
+driver_q3 = []
+
+for x in range(len(data["drv"])):
+    if data["drv"][x] == driver and data["qs"][x] == "Q1" and data["time"][x] != "None":
+        time = float(data["time"][x])
+        driver_q1.append(time)
+    elif data["drv"][x] == driver and data["qs"][x] == "Q2" and data["time"][x] != "None":
+        time = float(data["time"][x])
+        driver_q2.append(time)
+    elif data["drv"][x] == driver and data["qs"][x] == "Q3" and data["time"][x] != "None":
+            time = float(data["time"][x])
+            driver_q3.append(time)
+
+smallest_q1 = min(driver_q1)
+smallest_q2 = min(driver_q2)
+smallest_q3 = min(driver_q3)
+
+print(smallest_q1)
+
+print(smallest_q2)
+
+print(smallest_q3)
+
 
 
